@@ -1,0 +1,30 @@
+.about-us {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.about-us:hover {
+  box-shadow: 0 8px 12px rgba(212, 175, 55, 0.2);
+}
+.about-section h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.about-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.about-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

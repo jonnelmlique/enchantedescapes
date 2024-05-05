@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+.custom-margin {
+  font-weight: bold;
+  font-size: 17px;
+}
+.bold-text {
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 20px;
+}
+.navbar-icons a.nav-link {
+  color: #ffffff;
+  margin-right: 190px;
+  transition: color 0.3s;
+}
+.navbar-icons a.nav-link:hover,
+.navbar-icons a.nav-link:hover i {
+  color: #4b4b4b;
+}

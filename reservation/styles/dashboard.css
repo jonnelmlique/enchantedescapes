@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+body {
+    overflow-x: hidden !important;
+}
+
+.rooms img {
+    object-fit: cover;
+    overflow: hidden;
+    height: 380px;
+    width : 380px;
+    border-radius: 48px !important;
+}
+
+.testimony {
+    height: 250px;
+    width : 250px;
+    border-radius: 120px !important;
+}
+

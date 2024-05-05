@@ -1,0 +1,121 @@
+.product-details {
+  padding: 50px 0;
+  border: 2px solid #d4af37;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+.product-details:hover {
+  box-shadow: 0 8px 12px rgba(150, 135, 1, 0.2);
+}
+.product-details-img {
+  text-align: center;
+}
+.product-details-img img {
+  width: 95%;
+  height: 450px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  border: 2px solid #d4af37;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+.product-details-img img:hover {
+  box-shadow: 0 8px 12px rgba(150, 135, 1, 0.2);
+}
+.product-stock {
+  font-weight: bold;
+  font-size: 15px;
+  color: #d4af37;
+  padding: 10px;
+  border: 2px solid #d4af37;
+  width: 19%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 35px;
+}
+.product-details-title {
+  font-size: 2.9rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.product-details-price {
+  color: #d4af37;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-right: 35px;
+}
+.product-details-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.uldisplay {
+  list-style-type: none;
+}
+.ull {
+  margin-top: 25px;
+}
+.uldisplay li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.quantity-input {
+  margin-left: 25px;
+  margin-right: 10px;
+  padding: 5px;
+  text-align: center;
+}
+.quantityf {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.product-card a.product-card-link {
+  text-decoration: none;
+}
+
+.form-group .btn:hover {
+  background-color: #a4841b;
+  border-color: #a4841b;
+}
+
+.form-group .btn:hover {
+  color: #ffffff;
+}
+input[type="date"],
+input[type="time"] {
+  width: 20%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.checkin {
+  margin-right: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.checkout {
+  margin-right: 10px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.product-details-reservationprice {
+  color: #d47837;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-right: 35px;
+}

@@ -1,0 +1,42 @@
+
+.custom-sidebar {
+    width: 240px;
+    background-color: rgb(51, 51, 51);
+    color: #21313c;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  .custom-sidebar:hover {
+    box-shadow: 0 8px 12px rgba(28, 150, 1, 0.2);
+  }
+  
+  .nav {
+    background-color: rgb(51, 51, 51);
+    color: rgb(212, 175, 55);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  nav:hover {
+    box-shadow: 0 8px 12px rgba(28, 150, 1, 0.2);
+  }
+  .title {
+    margin-left: 240px;
+    font-weight: bold;
+  }
+  .custom-sidebar .logo {
+    margin-left: 50px;
+    margin-bottom: 50px;
+  }
+  .cont {
+    margin-top: 65px;
+  }

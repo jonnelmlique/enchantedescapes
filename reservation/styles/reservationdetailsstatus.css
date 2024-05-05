@@ -1,0 +1,99 @@
+.about-us {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.about-us:hover {
+  box-shadow: 0 8px 12px rgba(212, 175, 55, 0.2);
+}
+.about-section h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.about-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.about-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.guest {
+  margin-bottom: 20px;
+  margin-right: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  background-color: #e7e1e1;
+  color: #5b4a4a;
+  width: 500px;
+}
+.guest:hover {
+  box-shadow: 0 8px 12px rgba(212, 175, 55, 0.2);
+}
+.titleguest {
+  margin-left: 20px;
+  font-weight: bold;
+}
+.guestinfo {
+  margin-left: 70px;
+  margin-top: 20px;
+}
+.info {
+  padding: 20px;
+}
+.buttons {
+  margin-top: 15px;
+}
+.title {
+  margin-left: 300px;
+  font-weight: bold;
+}
+.reservationdetails {
+  margin-left: 70px;
+  margin-top: 20px;
+}
+.reserve {
+  margin-bottom: 20px;
+  margin-right: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  background-color: #e7e1e1;
+  color: #5b4a4a;
+}
+.reserve:hover {
+  box-shadow: 0 8px 12px rgba(212, 175, 55, 0.2);
+}
+.paymenttitle {
+  margin-left: 20px;
+  font-weight: bold;
+}
+.paymentdetails {
+  margin-left: 70px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.payment {
+  margin-bottom: 20px;
+  margin-left: 58%;
+  width: 500px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  background-color: #e7e1e1;
+  color: #5b4a4a;
+}
+.payment:hover {
+  box-shadow: 0 8px 12px rgba(212, 175, 55, 0.2);
+}

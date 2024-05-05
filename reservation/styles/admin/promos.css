@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #555555;
+}
+.wrapper {
+  width: 30%;
+  background-color: rgb(198, 198, 198);
+}
+.btn-primary:hover {
+  background-color: #a4841b;
+}
+.shadow-lg {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  margin-left: 140px;
+  height: 100%;
+  width: 1253px;
+}
+.fw-bold.text-uppercase {
+  margin-top: 30px
+}

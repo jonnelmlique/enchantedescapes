@@ -1,0 +1,14 @@
+footer {
+  background-color: #303030;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+.ss{
+    margin-top: 20px
+}

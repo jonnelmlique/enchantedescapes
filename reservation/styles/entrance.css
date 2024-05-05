@@ -1,0 +1,30 @@
+body {
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url("../assets/home-bg.jpg");
+  background-size: cover;
+}
+
+.entrance {
+  height: 100vh;
+}
+
+input[type="text"] {
+  outline: none;
+}
+.rounded {
+  border-radius: 12px !important;
+}
+.bg-dirty-white {
+  background-color: #f0f3f2;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+.form-label,
+.btn {
+  font-weight: bold;
+}
+.btn:hover {
+  opacity: 0.8;
+}
