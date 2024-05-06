@@ -344,20 +344,30 @@ if (isset($_SESSION['guestuserid'])) {
                                         $totalReservationPrice -= $discountAmount;
                                         $promoId = $promoRow['promoid'];
 
-                                        $updatePromoQuery = "UPDATE eespromo SET available = available - 1 WHERE promoid = $promoId";
-                                        mysqli_query($conn, $updatePromoQuery);
-                                        ;
+                                        if ($promoRow['available'] > 0) {
+
+                                            $updatePromoQuery = "UPDATE eespromo SET available = available - 1 WHERE promoid = $promoId";
+                                            mysqli_query($conn, $updatePromoQuery);
+                                            ;
 
 
-                                        $promoApplied = true;
+                                            $promoApplied = true;
 
 
-                                        echo "<div class='row mx-2 pt-2'>
+                                            echo "<div class='row mx-2 pt-2'>
                         <div class='col-12' align='center'>
                             <b class='text-uppercase'>Promotion Applied:</b><br />
                             <small>$promoName ($promoPercentage% Discount)</small>
                         </div>
                     </div>";
+                                        } else {
+                                            echo "<div class='row mx-2 pt-2'>
+                            <div class='col-12' align='center'>
+                                <b class='text-uppercase text-danger'>Promotion Not Available!</b><br />
+                                <small>The entered promotion code is currently not available or already fully used.</small>
+                                </div>
+                        </div>";
+                                        }
                                     } else {
                                         echo "<div class='row mx-2 pt-2'>
                         <div class='col-12' align='center'>

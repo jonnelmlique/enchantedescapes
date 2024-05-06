@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['userid'])) {
     header("Location: ../auth/login.php");
-    exit(); 
+    exit();
 }
 ?>
 <?php
@@ -13,6 +13,9 @@ $room_data = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['infoid'])) {
     $roominfo_id = $_GET['infoid'];
+
+    $_SESSION['roominfo_id'] = $roominfo_id;
+
 
     try {
         $sql = "SELECT * FROM roominfo WHERE roominfoid = ?";
@@ -94,7 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
                     <input type="hidden" name="roominfoid"
-                        value="<?php echo htmlspecialchars($room_data['roominfoid']); ?>">
+                        value="<?php echo isset($_SESSION['roominfo_id']) ? htmlspecialchars($_SESSION['roominfo_id']) : ''; ?>">
+
 
                     <div align="right">
                         <div class="row mt-1">
