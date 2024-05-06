@@ -122,12 +122,12 @@ if (
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'enchantedescapescontact@gmail.com';
-            $mail->Password = 'mqgqeokllxumgpzu';
+            $mail->Username = 'enchantedescapeshotel@gmail.com';
+            $mail->Password = 'htdsewgfjopecqxp';
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
 
-            $mail->setFrom('enchantedescapescontact@gmail.com', 'Enchanted Escapes');
+            $mail->setFrom('enchantedescapeshotel@gmail.com', 'Enchanted Escapes');
             $mail->addAddress($emailaddress);
             $mail->isHTML(true);
 
