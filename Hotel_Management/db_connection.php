@@ -1,4 +1,4 @@
-<?php
+    <?php
 // Database credentials
 $host = 'localhost';
 $dbname = 'enchantedescapes';
