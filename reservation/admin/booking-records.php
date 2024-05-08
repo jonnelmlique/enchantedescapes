@@ -104,10 +104,10 @@ if (!isset($_SESSION['userid'])) {
                                         echo "<button class='btn btn-warning w-100' style='border-radius: 8px'>Payment Failed</button>";
                                         break;
                                     case "Check-In":
-                                        echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Payment Failed</button>";
+                                        echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Check-In</button>";
                                         break;
                                     case "Check-Out":
-                                        echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Payment Failed</button>";
+                                        echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Check-Out</button>";
                                         break;
                                     default:
                                         echo "<button class='btn btn-secondary w-100' style='border-radius: 8px'>Unknown</button>";
