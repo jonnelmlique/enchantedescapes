@@ -95,9 +95,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <!-- <a href="register.php"
                         class="btn btn-primary w-100 d-block text-uppercase rounded border-primary mt-4 border-3">Create
                         Account</a> -->
-                    <a href="forgot.php"
+                    <!-- <a href="forgot.php"
                         class="btn btn-danger w-100 d-block text-uppercase rounded border-danger mt-4 mb-2 border-3">Forget
-                        Password</a>
+                        Password</a> -->
                 </div>
             </div>
         </div>

@@ -41,46 +41,57 @@ if (!isset($_SESSION['userid'])) {
 
                 </div>
                 <br>
-                <button class="btn btn-primary text-uppercase px-4" data-bs-toggle="modal"
+                <!-- <button class="btn btn-primary text-uppercase px-4" data-bs-toggle="modal"
                     data-bs-target="#addModal">Add</button>
-                <br>
+                <br> -->
                 <br />
 
                 <table class="table table-hover table-stripped border border-dark"
                     style="border-radius: 8px; table-layout: fixed" id="hruser">
                     <thead>
                         <tr>
-                            <td class="bg-dark text-white">#</td>
+                            <td class="bg-dark text-white">Image</td>
                             <td class="bg-dark text-white">Name</td>
-                            <td class="bg-dark text-white">User Role</td>
+                            <td class="bg-dark text-white">Gender</td>
+                            <td class="bg-dark text-white">Position</td>
+                            <td class="bg-dark text-white">Department</td>
                             <td class="bg-dark text-white">Status</td>
-                            <td class="bg-dark text-white">Action</td>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include '../src/config/config.php';
 
-                        $sql = "SELECT * FROM hrusers";
+                        $sql = "SELECT * FROM employee_info";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<td>" . $row['hruserid'] . "</td>";
-                                echo "<td class='fw-bold'>" . $row['name'] . "</td>";
-                                echo "<td>" . $row['userrole'] . "</td>";
-                                echo "<td class='text-" . ($row['status'] == 'Active' ? 'success' : 'danger') . " text-uppercase'>" . $row['status'] . "</td>";
-                                echo "<td><button class='btn btn-success w-100' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</button></td>";
+                                $imageData = $row['img'];
+                                if ($imageData !== null) {
+                                    $imageSrc = 'data:image/jpeg;base64,' . base64_encode($imageData);
+                                    echo "<td><img src='$imageSrc' alt='User Image' width='50' height='50'></td>";
+                                } else {
+                                    echo "<td>No Image</td>";
+                                }
+                                echo "<td class='fw-bold'>" . $row['Name'] . "</td>"; 
+                                echo "<td>" . $row['Gender'] . "</td>"; 
+                                echo "<td>" . $row['position'] . "</td>"; 
+                                echo "<td>" . $row['Department'] . "</td>"; 
+                                echo "<td class='text-" . ($row['Status'] == 'Active' ? 'success' : 'danger') . " text-uppercase'>" . $row['Status'] . "</td>";
                                 echo "</tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='5'>No users found</td></tr>";
+                            echo "<tr><td colspan='6'>No users found</td></tr>";
                         }
                         $conn->close();
                         ?>
+
+
                     </tbody>
                 </table>
+
 
             </div>
 
@@ -187,7 +198,7 @@ if (!isset($_SESSION['userid'])) {
     <script src="../scripts/jquery.min.js"></script>
     <script src="../scripts/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
+    <!-- <script>
     $(document).ready(function() {
         $('#addUserBtn').click(function() {
             var formData = $('#addUserForm').serialize();
@@ -220,7 +231,7 @@ if (!isset($_SESSION['userid'])) {
             });
         });
     });
-    </script>
+    </script> -->
     <script>
     $(document).ready(function() {
         $('#searchInput').on('keyup', function() {
@@ -241,7 +252,7 @@ if (!isset($_SESSION['userid'])) {
     });
     </script>
 
-    <script>
+    <!-- <script>
     $(document).ready(function() {
         $('tbody').on('click', 'tr', function() {
             var rowData = $(this).children("td").map(function() {
@@ -299,7 +310,7 @@ if (!isset($_SESSION['userid'])) {
         });
 
     });
-    </script>
+    </script> -->
 
 
 </body>
