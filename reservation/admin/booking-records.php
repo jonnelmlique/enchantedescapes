@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['userid'])) {
     header("Location: ../auth/login.php");
-    exit(); 
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ if (!isset($_SESSION['userid'])) {
                         $sql = "SELECT rp.*, r.roomtype, rp.roomnumber AS roomno, rp.roomfloor 
         FROM reservationprocess rp 
         INNER JOIN room r ON rp.roomid = r.roomid
-        WHERE rp.status = 'Cancelled' OR rp.status = 'Accepted'";
+        WHERE rp.status = 'Cancelled' OR rp.status = 'Accepted' OR rp.status = 'Check-In' OR rp.status = 'Check-In' OR rp.status = 'Check-Out'";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {

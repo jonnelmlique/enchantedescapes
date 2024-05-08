@@ -103,12 +103,12 @@ if (
 
     if (mysqli_query($conn, $sql)) {
 
-        // for ($i = 0; $i < count($roomnumberArray); $i++) {
-        //     $roomnumber = mysqli_real_escape_string($conn, $roomnumberArray[$i]);
+        for ($i = 0; $i < count($roomnumberArray); $i++) {
+            $roomnumber = mysqli_real_escape_string($conn, $roomnumberArray[$i]);
 
-        //     $sql_update_room_status = "UPDATE roominfo SET status = 'Reserved' WHERE roomnumber = '$roomnumber'";
-        //     mysqli_query($conn, $sql_update_room_status);
-        // }
+            $sql_update_room_status = "UPDATE roominfo SET status = 'Unavailable' WHERE roomnumber = '$roomnumber'";
+            mysqli_query($conn, $sql_update_room_status);
+        }
 
         $sql_delete_guest = "DELETE FROM guestdetails WHERE guestuserid = '$guestuserid'";
         $sql_delete_bookingcart = "DELETE FROM reservationsummary WHERE guestuserid = '$guestuserid'";
