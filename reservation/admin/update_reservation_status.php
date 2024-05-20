@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $body .= "Room Inclusion: $roominclusion<br>";
                 $body .= "Reservation Price: ₱" . number_format($totalafterpromo, 2) . "<br>";
                 $body .= "Payment Method: $paymentmethod<br>";
-                $body .= "Transaction ID: <a href='http://localhost/eeh-reservation/reservationstatusdetails.php?transactionid=$transactionid'>$transactionid</a><br>";
+                $body .= "Transaction ID: <a href='https://enchanted-escapes.me/reservation/reservationstatusdetails.php?transactionid=$transactionid'>$transactionid</a><br>";
 
                 sendEmail($email, $subject, $body);
             } else {

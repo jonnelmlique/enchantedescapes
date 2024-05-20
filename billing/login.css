@@ -1,0 +1,92 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 6rem); /* Reduced min-height */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    opacity: .9;
+}
+
+.form-container form {
+    background-color: black;
+    border-radius: .5rem;
+    border: 2px solid #DAA520;
+    padding: 0.8rem; /* Reduced padding */
+    text-align: center;
+    width: 20rem;
+}
+
+.form-container h3 {
+    font-size: 1.6rem;
+    color: #DAA520;
+    text-transform: capitalize;
+    margin-bottom: 0.8rem;
+    margin-top: 1rem; /* Adjusted margin-top */
+}
+
+
+.form-container .box {
+    width: 18rem;
+    background-color: white;
+    padding: 0.4rem; /* Reduced padding */
+    color: black;
+    margin: 0.4rem 0;
+    border: 2px solid #DAA520;
+    font-size: 0.9rem;
+    border-radius: .5rem;
+}
+
+.form-container .btn {
+    height: 30px; /* Reduced height */
+    width: 90px; /* Reduced width */
+    border: 2px solid #DAA520;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px; /* Reduced margin-top */
+}
+
+.form-container .btn:hover {
+    background-color: #DAA520;
+    color: white;
+}
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.form-container {
+    position: relative;
+    z-index: 1;
+}
+
+img {
+    position: relative;
+    bottom: 20px; /* Reduced bottom */
+    right: 5px;
+    height: auto;
+    width: 80%;
+}
+
+.input_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 50px; /* Reduced bottom */
+}
+
+        .input_form label {
+    color: #DAA520;
+    text-align: left; /* Align labels to the left */
+    width: 100%; /* Make labels take full width */
+    display: block; /* Ensure each label is on its own line */
+    margin-left: 1.5rem;  /* Add some bottom margin for spacing */
+}

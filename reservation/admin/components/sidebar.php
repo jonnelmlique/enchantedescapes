@@ -22,7 +22,7 @@
         <a href="../admin/rooms.php" class="btn btn-primary text-white w-100 fw-bold mt-2"
             style="border-radius: 8px">Rooms</a>
         <a href="../admin/manage-accounts.php" class="btn btn-primary text-white w-100 fw-bold mt-2"
-            style="border-radius: 8px">Manage Accounts</a>
+            style="border-radius: 8px">Employee</a>
         <a href="../admin/reports.php" class="btn btn-primary text-white w-100 fw-bold mt-2"
             style="border-radius: 8px">Reports</a>
         <br /><br />

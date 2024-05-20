@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchanted Escapes Hotel</title>
+    <link rel="icon" type="image/png" href="images/logo.png"> <!-- Corrected favicon link -->
+    <link rel="stylesheet" href="im.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="images/logo2.png" class="logo2" alt="">
+        <a href="#" class="nav-link dashboard active" data-index="1"><img src="images/dashboard.png" class="icondashboard"> Dashboard</a>
+        <a href="#" class="nav-link manage-product" data-index="2"><img src="images/manageproduct.png" class="iconmanageproduct"> Manage Product</a>
+        <a href="#" class="nav-link manage-stocks" data-index="3"><img src="images/managestocks.png" class="iconmanagestocks"> Manage Stocks</a>
+        <a href="#" class="nav-link stock-reports" data-index="4"><img src="images/reports.png" class="iconstockreports"> Stock Reports</a>
+        <a href="#" class="nav-link suppliers" data-index="5"><img src="images/suppliers.png" class="iconsuppliers">Suppliers</a>
+        <a href="#" class="nav-link sales-reports" data-index="6"><img src="images/reports.png" class="iconsalesreports">Sales Reports</a>
+    </div>
+
+    <div class="upper-div">
+    <span class="hamburger">&#9776;</span>
+    <p id="datetime" class="datetime"></p>
+    <p class="name-admin"> Cedric John Sadsad </p>
+    <form id="logoutForm" action="login.html" method="post" class="form2">
+        <button type="submit" class="logout-button"><i class="fas fa-sign-out-alt"></i></button>
+        </form>
+    </div>
+
+    <div id="content1" class="content" style="display: block;">
+        <div class="for-img">
+            <div class="stocks-box"> <img src="images/managestocks.png"> <p> 11 </p> <span class="stock">Stocks</span></div>
+            <div class="products-box"><img src="images/manageproduct.png"> <p> 11 </p> <span class="products" >Products</span></div>
+            <div class="critical-box"><img src="images/critical.png"> <p> 11 </p> <span class="critical">Critical Stocks</span></div>
+            <div class="suppliers-box"><img src="images/suppliers.png"> <p> 11 </p><span class="suppliers">Suppliers</span></div>
+            <div class="totalsales-box"><img src="images/reports.png"> <p> 11 </p><span class="sales">Total Sales</span> </div>
+            <div class="totalpurchase-box"><img src="images/checklist.png"> <p> 11 </p><span class="purchase">Total Purchase</span> </div>
+            </div>
+    
+            <div class="latest-sales">
+                <p> Latest Sales </p> 
+                <div class="border-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Date</th>
+                                <th>Total Sales</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table content will go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+            <div class="history-purchased">
+                <p> History Purchased </p> 
+                <div class="border-table2">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Date</th>
+                                <th>Total </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Table content will go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+    
+    </div>
+
+    <div id="content2" class="content">
+        <h1>List of Products</h1>
+        <div class="popup-form-container" id="popupFormContainer">
+            <div class="popup-form">
+                <span class="close-btn" onclick="closePopupForm()">&times;</span>
+                <h2>Add Product</h2>
+    
+                <form id="addProductForm">
+                    <label for="product-name" class="label-product">Stock Description</label>
+                    <input type="text" name="product-name" class="content2-productname">
+                    <label for="category" class="lbl-category">Category</label>
+                    <select name="category" id="" class="select-category">
+                        <option value="beverages">Beverages</option>
+                    </select>
+                    
+                    <label for="type" class="lbltype">Type</label>
+                    <select name="type" id="" class="select-type">
+                        <option value="canned-drinks">Canned Drinks</option>
+                    </select>
+    
+                    <label for="expiry" class="lblexpiry">Expiry Date</label>
+                    <input type="date" name="expiry" class="select-expiry">
+                    
+                    <label for="quantity" class="lblqty">Quantity</label>
+                    <input type="text" class="input-qty">
+    
+                    <label for="qtyperitem" class="lblqtyperitem">Quantity per Item</label>
+                    <input type="text" class="input-qtyperitem">
+                    
+                    <label for="price" class="lblprice">Price</label>
+                    <input type="text" class="input-price">
+    
+                    <label for="date-purchased" class="lbldatepurchased">Date Purchased</label>
+                    <input type="date" class="input-datepurchased">
+    
+                    <label for="time-purchased" class="lbltimepurchased">Time Purchased</label>
+                    <input type="time" name="" id="" class="input-timepurchased">
+    
+                    <label for="total" class="lbltotal">Total</label>
+                    <input type="text" class="input-total">
+    
+                    <button type="submit" class="add-btn">Add Product</button>
+                </form>
+            </div>
+        </div>        
+        <button class="add-product">+ Add Product </button>
+        <table class="content2-table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Expiry Date</th>
+                    <th>Qty</th>
+                    <th>Qty per Item</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product ID</td>
+                    <td>Product Name</td>
+                    <td>Category</td>
+                    <td>Type</td>
+                    <td>Expiry Date</td>
+                    <td>Qty</td>
+                    <td>Qty per Item</td>
+                    <td>Price</td>
+                    <td>Date</td>
+                    <td>Time</td>
+                    <td>Total</td>
+                    <td>Action</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="search-container">
+            <input type="text" class="content2-search" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="dropdown-container">
+            <select id="type" name="type" class="dropdown-toggle">
+                <option value="" selected disabled hidden>Filter by Category</option>
+                <option value="Category 1">Category 1</option>
+                <option value="Category 2">Category 2</option>
+                <option value="Category 3">Category 3</option>
+                <!-- Add more categories as needed -->
+            </select>
+        </div>
+    </div>
+    
+
+    <div id="content3" class="content">
+        <!-- Content for the second navigation link -->
+    </div>
+
+    <!-- Repeat the content divs for content 3 to 6 -->
+
+    <script src="im.js"></script>
+
+    <script>
+        // Get the <p> element
+        const datetimeParagraph = document.getElementById('datetime');
+
+        // Function to update date and time
+        function updateDateTime() {
+            // Get current date and time
+            const now = new Date();
+
+            // Format the date and time
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+            const dateString = now.toLocaleDateString(undefined, dateOptions);
+            const timeString = now.toLocaleTimeString(undefined, timeOptions);
+
+            // Update the <p> element with the formatted date and time
+            datetimeParagraph.textContent = `${dateString}, ${timeString}`;
+        }
+
+        // Call the function once to update initially
+        updateDateTime();
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('.navbar .nav-link');
+        const contents = document.querySelectorAll('.content');
+
+        // Add event listener to each navigation link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                // Remove the active class from all navigation links
+                navLinks.forEach(link => link.classList.remove('active'));
+                contents.forEach(content => content.style.display = 'none');
+
+                // Add the active class to the clicked navigation link
+                this.classList.add('active');
+
+                // Show the corresponding content
+                const index = parseInt(this.getAttribute('data-index'));
+                const content = document.getElementById(`content${index}`);
+                content.style.display = 'block';
+
+                // Prevent the default link behavior
+                event.preventDefault();
+            });
+        });
+    </script>
+
+</body>
+</html>

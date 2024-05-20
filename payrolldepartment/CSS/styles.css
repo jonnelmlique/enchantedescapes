@@ -1,0 +1,27 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0 ;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .navbar-collapse.open {
+        display: flex;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+}

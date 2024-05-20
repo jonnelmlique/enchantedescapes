@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="website icon" type="png" href="images/logo.png">
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <img src="images/logo.png" class="logo" alt="">
+    <h1 class="hotel-name">ENCHANTED ESCAPES HOTEL</h1>
+    <h2 class="inventory-name">INVENTORY MANAGEMENT SYSTEM</h2>
+    <p class="welcome-admin">Welcome, Admin!</p>
+    <form action="login.php" method="post">
+        <input type="email" id="email" name="email" class="username" placeholder="   Email :" required>
+        <input type="password" id="password" name="password" class="password" placeholder="   Password :" required>
+        <input type="checkbox" id="showPassword" class="showPassword">
+        <label for="showPassword" class="label-show"> Show Password</label>
+        <button type="submit" class="login"> Login </button>
+        <a href="#" class="signup">Sign up</a>
+        <a href="#" class="forgot">Forgot Password?</a>
+    </form>
+    <img src="images/login-pic.png" class="login-pic" alt="">
+</body>
+</html>
+<script>
+    const checkbox = document.getElementById('showPassword');
+    const passwordField = document.getElementById('password');
+    
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            passwordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+        }
+    });
+</script>

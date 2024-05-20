@@ -1,0 +1,152 @@
+<!-- <?php
+session_start();
+
+if (!isset($_SESSION['firstname'])) {
+    header("Location: login.html");
+    exit();
+}
+
+echo "Welcome, " . $_SESSION['firstname'];
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchanted Escapes Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: lightgray;
+    display: flex; /* Add flex display to align content horizontally */
+}
+
+.navbar {
+    height: 100%;
+    width: 300px;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    line-height: 50px; /* Adjusted line-height */
+    padding: 15px 0; /* Adjusted padding */
+    font-weight: bold;
+}
+
+.logo2 {
+    height: 150px;
+    width: 200px;
+    margin-left: 15%;
+}
+
+.navbar a:hover {
+    background-color: orange; 
+}
+
+.content-wrapper {
+    flex: 1; /* Allow content wrapper to expand and fill remaining space */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.content {
+    display: none;
+    padding: 20px;
+    border: 1px solid black; /* Add border for visibility */
+    background-color: white; /* Add background color */
+}
+
+.active {
+    display: block;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="images/logo2.png" class="logo2" alt="">
+        <a href="#" class="nav-link active" onclick="showDiv(1)"><img src="images/dashboard.png" class="icon"> Dashboard</a>
+        <a href="#" class="nav-link" onclick="showDiv(2)"><img src="images/manageproduct.png" class="icon"> Manage Product</a>
+        <a href="#" class="nav-link" onclick="showDiv(3)"><img src="images/managestocks.png" class="icon"> Manage Stocks</a>
+        <a href="#" class="nav-link" onclick="showDiv(4)"><img src="images/reports.png" class="icon"> Stock Reports</a>
+        <a href="#" class="nav-link" onclick="showDiv(5)"><img src="images/suppliers.png" class="icon"> Suppliers</a>
+        <a href="#" class="nav-link" onclick="showDiv(6)"><img src="images/reports.png" class="icon"> Sales Reports</a>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content" id="div1">Content 1</div>
+        <div class="content" id="div2">Content 2</div>
+        <div class="content" id="div3">Content 3</div>
+        <div class="content" id="div4">Content 4</div>
+        <div class="content" id="div5">Content 5</div>
+        <div class="content" id="div6">Content 6</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Initialization function
+    function initialize() {
+        // Show the content of the first div
+        const firstContentDiv = document.getElementById('div1');
+        firstContentDiv.classList.add('active');
+
+        // Set active class for the first nav link
+        const firstNavLink = document.querySelector('.nav-link');
+        firstNavLink.classList.add('active');
+    }
+
+    // Call the initialization function
+    initialize();
+
+    // Get all nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Add event listener to each nav link
+    navLinks.forEach(function(link, index) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+
+            // Remove active class from all nav links
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            // Add active class to the clicked nav link
+            link.classList.add('active');
+
+            // Hide all content divs
+            const contentDivs = document.querySelectorAll('.content');
+            contentDivs.forEach(function(div) {
+                div.classList.remove('active');
+            });
+
+            // Show the corresponding content div
+            const contentDiv = document.getElementById('div' + (index + 1));
+            contentDiv.classList.add('active');
+        });
+    });
+});
+
+
+</script>
+

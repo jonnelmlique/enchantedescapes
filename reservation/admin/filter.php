@@ -7,7 +7,7 @@ if (isset($_POST['startDate']) && isset($_POST['endDate'])) {
     $sql = "SELECT rp.*, r.roomtype, rp.roomnumber AS roomno, rp.roomfloor 
             FROM reservationprocess rp 
             INNER JOIN room r ON rp.roomid = r.roomid
-            WHERE rp.status = 'Accepted' 
+            WHERE rp.status = 'Accepted' or rp.status = 'Check-In' or rp.status = 'Check-Out' 
             AND DATE(rp.reservationcompleted) BETWEEN '$startDate' AND '$endDate'";
     $result = $conn->query($sql);
 
@@ -49,6 +49,12 @@ if (isset($_POST['startDate']) && isset($_POST['endDate'])) {
                     break;
                 case "Accepted":
                     echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Accepted</button>";
+                    break;
+                case "Check-In":
+                    echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Check-In</button>";
+                    break;
+                case "Check-Out":
+                    echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Check-Out</button>";
                     break;
                 case "Cancelled":
                     echo "<button class='btn btn-danger w-100' style='border-radius: 8px'>Cancelled</button>";

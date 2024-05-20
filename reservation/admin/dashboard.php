@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['userid'])) {
+if (!isset($_SESSION['id'])) {
     header("Location: ../auth/login.php");
-    exit(); 
+    exit();
 }
 ?>
 <?php
@@ -51,6 +51,13 @@ if ($result_expected_departures->num_rows > 0) {
     $row_expected_departures = $result_expected_departures->fetch_assoc();
     $total_expected_departures = $row_expected_departures["total_departures"];
 }
+$sql_checkin_reservations = "SELECT COUNT(*) AS total_checkin FROM reservationprocess WHERE status = 'Check-In'";
+$result_checkin_reservations = $conn->query($sql_checkin_reservations);
+if ($result_checkin_reservations->num_rows > 0) {
+    $row_checkin_reservations = $result_checkin_reservations->fetch_assoc();
+    $total_checkin_reservations = $row_checkin_reservations["total_checkin"];
+}
+
 
 ?>
 <?php
@@ -132,12 +139,12 @@ $conn->close();
                                 <h4 class="fw-bold"><?php echo $total_expected_departures; ?></h4>
                             </div>
                             <br />
-
                             <div class="card card-body bg-primary text-white px-4" style="border-radius: 8px"
                                 align="center">
-                                <h6 class="fw-bold">Current In-House</h6>
-                                <h4 class="fw-bold">0</h4>
+                                <h6 class="fw-bold">Current Check-In</h6>
+                                <h4 class="fw-bold"><?php echo $total_checkin_reservations; ?></h4>
                             </div>
+
                         </div> <br />
                         <br />
                         <br />

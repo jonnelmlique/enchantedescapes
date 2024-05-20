@@ -95,7 +95,7 @@ if (isset($_SESSION['guestuserid'])) {
                                     echo "<hr>";
                                 }
 
-                                echo "<p><strong>Total Reservation Price:</strong> ₱" . number_format($totalReservationPrice, 2) . "</p>";
+                                echo "<p><strong>Total Reservation Price:</strong> " . number_format($totalReservationPrice, 2) . "</p>";
                             } else {
                                 echo "<p>No bookings found.</p>";
                             }
@@ -324,7 +324,7 @@ if (isset($_SESSION['guestuserid'])) {
                                     <small class='text-primary'>$roomtype</small>
                                 </div>
                                 <div class='col-6'>
-                                    <small>₱" . number_format($reservationPrice, 2) . "</small>
+                                    <small>" . number_format($reservationPrice, 2) . "</small>
                                 </div>
                             </div>
                             <div align='center'>
@@ -379,13 +379,13 @@ if (isset($_SESSION['guestuserid'])) {
                                 }
                                 echo "<div class='row mx-2 pt-2'>
                                 <div class='col-6'><b>Total</b></div>
-                                <div id='total-after-promo' class='col-6' align='right'>₱" . number_format($totalReservationPriceWithoutPromo, 2) . "</div>
+                                <div id='total-after-promo' class='col-6' align='right'>" . number_format($totalReservationPriceWithoutPromo, 2) . "</div>
                               </div>";
 
                                 if ($promoApplied) {
                                     echo "<div class='row mx-2 pt-2'>
                                     <div class='col-6'><b>Total with Promo</b></div>
-                                    <div id='total-after-promo' class='col-6' align='right'>₱" . number_format($totalReservationPrice, 2) . "</div>
+                                    <div id='total-after-promo' class='col-6' align='right'>" . number_format($totalReservationPrice, 2) . "</div>
                                   </div>";
 
                                 }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['userid'])) {
+if (!isset($_SESSION['id'])) {
     header("Location: ../auth/login.php");
     exit();
 }
@@ -61,7 +61,8 @@ if (!isset($_SESSION['userid'])) {
                         $sql = "SELECT rp.*, r.roomtype, rp.roomnumber AS roomno, rp.roomfloor 
         FROM reservationprocess rp 
         INNER JOIN room r ON rp.roomid = r.roomid
-        WHERE rp.status = 'Cancelled' OR rp.status = 'Accepted' OR rp.status = 'Check-In' OR rp.status = 'Check-Out'";
+        WHERE rp.status = 'Cancelled' OR rp.status = 'Accepted' OR rp.status = 'Check-In' OR rp.status = 'Check-Out'
+        ORDER BY rp.recervationprocessid DESC";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -94,20 +95,19 @@ if (!isset($_SESSION['userid'])) {
                                     case "Pending":
                                         echo "<button class='btn btn-info w-100' style='border-radius: 8px'>Pending</button>";
                                         break;
-                                    case "Accepted":
-                                        echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Accepted</button>";
-                                        break;
-                                    case "Cancelled":
+  case "Accepted":
+        echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Accepted</button>";
+        break;
+    case "Check-In":
+        echo "<button class='btn btn-primary w-100' style='border-radius: 8px'>Check-In</button>";
+        break;
+    case "Check-Out":
+        echo "<button class='btn btn-warning w-100' style='border-radius: 8px'>Check-Out</button>";
+        break;                                    case "Cancelled":
                                         echo "<button class='btn btn-danger w-100' style='border-radius: 8px'>Cancelled</button>";
                                         break;
                                     case "Payment Failed":
                                         echo "<button class='btn btn-warning w-100' style='border-radius: 8px'>Payment Failed</button>";
-                                        break;
-                                    case "Check-In":
-                                        echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Check-In</button>";
-                                        break;
-                                    case "Check-Out":
-                                        echo "<button class='btn btn-success w-100' style='border-radius: 8px'>Check-Out</button>";
                                         break;
                                     default:
                                         echo "<button class='btn btn-secondary w-100' style='border-radius: 8px'>Unknown</button>";

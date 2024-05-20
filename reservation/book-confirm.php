@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nameornickname']) && i
     $message = $_POST['testimonies'];
 
     if (empty(trim($name)) || empty(trim($message))) {
-        header("Location: book-now.php");
+        header("Location: index.php");
         exit;
     }
 
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nameornickname']) && i
         $stmt->execute();
         $stmt->close();
 
-        header("Location: book-now.php");
+        header("Location: index.php");
 
     }
 }
@@ -63,15 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nameornickname']) && i
                         <div class="border border-primary w-100 p-2 px-3" style="border-radius: 12px">
                             <br />
                             <h4 class="fw-bold text-uppercase">Booking confirmation has been sent to your email</h4>
-                            <?php
-                            if (isset($_GET['transactionID'])) {
-                                $transactionID = $_GET['transactionID'];
-                                echo '<h4 class="fw-bold text-uppercase">Transaction ID: ' . $transactionID . '</h4>';
-                            } else {
-                                echo '<h4 class="fw-bold text-uppercase">Transaction ID not found!</h4>';
-                            }
-                            ?>
-                            <br />
+                                                       <br />
                         </div><br />
                         <div class="card p-4 border border-primary" style="border-radius: 12px;">
                             <h5 class="fw-bold text-uppercase">Give your testimonies</h5>

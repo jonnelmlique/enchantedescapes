@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['userid'])) {
+if (!isset($_SESSION['id'])) {
     header("Location: ../auth/login.php");
     exit();
 }
@@ -12,7 +12,7 @@ if (!isset($_SESSION['userid'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Hotel Reservation System | Manage Accounts</title>
+    <title>Hotel Reservation System | Accounts</title>
 
     <link href="../styles/bootstrap.min.css" rel="stylesheet" />
     <link href="../styles/booking.css" rel="stylesheet" />
@@ -31,7 +31,7 @@ if (!isset($_SESSION['userid'])) {
 
         <div class="col-lg-8 bg-white shadow-lg">
             <div class="px-4">
-                <h4 class="fw-bold text-uppercase">&gt; Manage Accounts</h4>
+                <h4 class="fw-bold text-uppercase">&gt; Employee</h4>
                 <hr>
                 <br />
 
@@ -47,10 +47,9 @@ if (!isset($_SESSION['userid'])) {
                 <br />
 
                 <table class="table table-hover table-stripped border border-dark"
-                    style="border-radius: 8px; table-layout: fixed" id="hruser">
+                    style="border-radius: 8px; table-layout: fixed center" id="hruser">
                     <thead>
                         <tr>
-                            <td class="bg-dark text-white">Image</td>
                             <td class="bg-dark text-white">Name</td>
                             <td class="bg-dark text-white">Gender</td>
                             <td class="bg-dark text-white">Position</td>
@@ -68,17 +67,11 @@ if (!isset($_SESSION['userid'])) {
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                $imageData = $row['img'];
-                                if ($imageData !== null) {
-                                    $imageSrc = 'data:image/jpeg;base64,' . base64_encode($imageData);
-                                    echo "<td><img src='$imageSrc' alt='User Image' width='50' height='50'></td>";
-                                } else {
-                                    echo "<td>No Image</td>";
-                                }
-                                echo "<td class='fw-bold'>" . $row['Name'] . "</td>"; 
-                                echo "<td>" . $row['Gender'] . "</td>"; 
-                                echo "<td>" . $row['position'] . "</td>"; 
-                                echo "<td>" . $row['Department'] . "</td>"; 
+
+                                echo "<td class='fw-bold'>" . $row['first_name'] . " " . $row['middle_name'] . " " . $row['last_name'] . "</td>";
+                                echo "<td>" . $row['Gender'] . "</td>";
+                                echo "<td>" . $row['position'] . "</td>";
+                                echo "<td>" . $row['Department'] . "</td>";
                                 echo "<td class='text-" . ($row['Status'] == 'Active' ? 'success' : 'danger') . " text-uppercase'>" . $row['Status'] . "</td>";
                                 echo "</tr>";
                             }
@@ -233,23 +226,23 @@ if (!isset($_SESSION['userid'])) {
     });
     </script> -->
     <script>
-    $(document).ready(function() {
-        $('#searchInput').on('keyup', function() {
-            var searchText = $(this).val().trim();
-            if (searchText !== '') {
-                $.ajax({
-                    url: 'searchaccount.php',
-                    type: 'post',
-                    data: {
-                        search: searchText
-                    },
-                    success: function(response) {
-                        $('#hruser tbody').html(response);
-                    }
-                });
-            }
+        $(document).ready(function () {
+            $('#searchInput').on('keyup', function () {
+                var searchText = $(this).val().trim();
+                if (searchText !== '') {
+                    $.ajax({
+                        url: 'searchaccount.php',
+                        type: 'post',
+                        data: {
+                            search: searchText
+                        },
+                        success: function (response) {
+                            $('#hruser tbody').html(response);
+                        }
+                    });
+                }
+            });
         });
-    });
     </script>
 
     <!-- <script>

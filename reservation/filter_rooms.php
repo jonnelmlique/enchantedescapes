@@ -21,6 +21,8 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+        echo '<a href="roomdetails.php?roomid=' . $row['roomid'] . '" style="text-decoration: none; color: inherit;">';
+
         echo '<div class="border border-primary w-100 p-2" style="border-radius: 12px; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor=\'#f0f0f0\';" onmouseout="this.style.backgroundColor=\'\';">';
         echo '<div class="row">';
         echo '<div class="col-5">';
@@ -43,6 +45,8 @@ if ($result->num_rows > 0) {
         echo '</div>';
         echo '</div>';
         echo '</div>';
+        echo '</a>';
+
         echo '<br />';
     }
 } else {

@@ -165,6 +165,7 @@ if (isset($_SESSION['guestuserid'])) {
                                 <div class="col-4">
                                     <input type="text" class="form-control" name="zip" placeholder="Zip Postal Code"
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                        maxlength="4"
                                         value="<?php echo isset($_SESSION['guest_details']['zipcode']) ? $_SESSION['guest_details']['zipcode'] : ''; ?>"
                                         required />
 

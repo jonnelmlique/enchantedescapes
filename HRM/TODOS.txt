@@ -1,0 +1,22 @@
+Buttons 
+• Edit Department - WORKING (CRUD)
+•Update admin - WORKING (CRUD)
+• View Leave management(view lang talaga)
+•Update Leave management (pag Inaccept dapat accept din yung status, tas pag na accept na bawal na iedit 
+tas dapat mainsert din yun sa employee record yung days kung ilang Araw leave nya) - WORKING
+• Edit Employee Schedule - WORKING (CRUD)
+• Delete button sa Department - WORKING 
+• Tsaka ibang delete buttons, yung iba kasi pag Isa lang dinedelte mo lahat nadedelete - WORKING
+
+Module
+•ID Request- 
+(Add New Card )Dapat auto fill na once inenter yung Employee ID bukos sa Expire Date - WORKING
+
+COE Request
+• Dapat nasesave sa Certificate database - - WORKING
+•Nagshoshow dapat sa table - WORKING
+
+Summary Reports
+• Print pangkalahatan( may date tsaka time)
+ ex. January 1-January 30 12:00AM - 3:PM
+• naadd din dapat yung leave days kapag magrerequest sila ng Leave

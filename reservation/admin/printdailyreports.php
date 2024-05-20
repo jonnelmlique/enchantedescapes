@@ -35,7 +35,7 @@
                     $sql = "SELECT rp.*, r.roomtype, rp.roomnumber AS roomno, rp.roomfloor 
                     FROM reservationprocess rp 
                     INNER JOIN room r ON rp.roomid = r.roomid
-                    WHERE rp.status = 'Accepted' 
+                    WHERE rp.status = 'Accepted' or rp.status = 'Check-In' or rp.status = 'Check-Out' 
                     AND DATE(rp.reservationcompleted) = '$today'";
                     $result = $conn->query($sql);
 
@@ -86,19 +86,19 @@
     </div>
 
     <script>
-        function printReceipt() {
-            var printContents = document.getElementById("printSection").innerHTML;
-            var originalContents = document.body.innerHTML;
-            document.body.innerHTML = printContents;
-            window.print();
-            document.body.innerHTML = originalContents;
-        }
+    function printReceipt() {
+        var printContents = document.getElementById("printSection").innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
 
-        document.getElementById('printButton').addEventListener('click', printReceipt);
+    document.getElementById('printButton').addEventListener('click', printReceipt);
 
-        window.onload = function () {
-            printReceipt(); // Automatically trigger print on page load
-        };
+    window.onload = function() {
+        printReceipt(); // Automatically trigger print on page load
+    };
     </script>
 </body>
 

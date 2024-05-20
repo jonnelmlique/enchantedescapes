@@ -1,6 +1,6 @@
 <?php
 
-include './src/config/config.php';
+include '../src/config/config.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -135,7 +135,7 @@ if (
             $result_status = mysqli_query($conn, $sql_status);
             $row_status = mysqli_fetch_assoc($result_status);
             $status = $row_status['status'];
-            $formattedTotal = '₱' . number_format($totalafterpromo, 2);
+            $formattedTotal = '?' . number_format($totalafterpromo, 2);
 
             $mail->Subject = 'Reservation Confirmation';
             $mail->Body = '
@@ -162,7 +162,7 @@ if (
                         <li>City: ' . $city . '</li>
                         <li>Zipcode: ' . $zipcode . '</li><br>
                         
-                        <li>Transaction ID: <a href="http://localhost/eeh-reservation/reservationstatusdetails.php?transactionid=' . $transactionID . '">' . $transactionID . '</a></li>
+                        <li>Transaction ID: <a href="https://enchanted-escapes.me/reservation/reservationstatusdetails.php?transactionid=' . $transactionID . '">' . $transactionID . '</a></li>
                         <li>Payment Method: ' . $paymentMethod . '</li>
                         <li>Status: ' . $status . '</li>';
             if ($paymentMethod === "gcashqr") {

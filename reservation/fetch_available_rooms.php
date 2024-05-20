@@ -8,7 +8,7 @@ if (isset($_GET['floor']) && isset($_GET['checkin_date'])) {
 
     $sql = "SELECT roomnumber FROM roominfo WHERE roomfloor = '$floor' AND roomnumber NOT IN (
                 SELECT roomnumber FROM reservationprocess 
-                WHERE checkindate = '$checkinDate' AND status IN ('Pending', 'Accepted')
+                WHERE checkindate = '$checkinDate' AND status IN ('Pending', 'Accepted', 'Check-In')
             )";
 
     $result = $conn->query($sql);

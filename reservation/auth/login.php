@@ -6,42 +6,48 @@ session_start();
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST['email']) || empty($_POST['password'])) {
-        $message = "Email and password are required.";
+    if (empty($_POST['login']) || empty($_POST['password'])) {
+        $message = "Login and password are required.";
     } else {
 
-        $email = trim($_POST['email']);
+        $login = trim($_POST['login']);
         $password = trim($_POST['password']);
 
-        $sql = "SELECT * FROM reservationusers WHERE email=?";
+        if (filter_var($login, FILTER_VALIDATE_EMAIL)) {
+            $sql = "SELECT * FROM admin_tbl WHERE email=?";
+        } else {
+            $sql = "SELECT * FROM admin_tbl WHERE adminID=?";
+        }
+
         $stmt = $conn->prepare($sql);
         if (!$stmt) {
             $message = "Error preparing statement: " . $conn->error;
         } else {
 
-            $stmt->bind_param("s", $email);
+            $stmt->bind_param("s", $login);
             $stmt->execute();
             $result = $stmt->get_result();
 
             if ($result->num_rows == 1) {
                 $row = $result->fetch_assoc();
-                $storedPassword = $row['password'];
 
-                if (password_verify($password, $storedPassword)) {
-                    $_SESSION['userid'] = $row['userid'];
-                    $_SESSION['usertype'] = $row['usertype'];
+                if ($password === $row['password']) {
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['adminID'] = $row['adminID'];
                     $_SESSION['email'] = $row['email'];
-                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['Department'] = $row['Department'];
 
-                    if ($_SESSION['usertype'] == 'admin') {
+                    if ($row['Department'] == 'Reservation Department') {
                         header("Location: ../admin/dashboard.php");
+                        exit();
                     } else {
-                        header("Location: ../index.php");
+                        $message = "User is not from Reservation Department.";
                     }
-                    exit();
                 } else {
-                    $message = "Incorrect password or email.";
+                    $message = "Incorrect password.";
                 }
+            } else {
+                $message = "User with this login does not exist.";
             }
             $stmt->close();
         }
@@ -49,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 <!DOCTYPE html>
 
 <head>
@@ -75,29 +82,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <br /><br />
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" <div
                         class="border border-primary border rounded w-100 pt-4 pb-2 px-4">
-                        <h5><label for="email" class="form-label text-uppercase">Email</label></h5>
-                        <input type="email" class="form-control rounded bg-secondary mt-2" name="email" />
+                        <h5><label for="email" class="form-label text-uppercase">Email / ID</label></h5>
+                        <input type="text" id="login" class="form-control rounded bg-secondary mt-2" name="login" />
                         <br />
 
                         <h5><label for="password" class="form-label text-uppercase">Password</label></h5>
-                        <input type="password" class="form-control rounded bg-secondary mt-2" name="password" />
+                        <input type="password" id="password" class="form-control rounded bg-secondary mt-2"
+                            name="password" />
                         <br />
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="showPasswordCheckbox">
+                            <label class="form-check-label" for="showPasswordCheckbox">Show Password</label>
+                        </div>
                         <button type="submit"
                             class="btn btn-outline-primary w-100 d-block text-uppercase rounded">Login</button>
 
-
+                        <a href="/access/employee.php"
+                            class="btn btn-danger w-100 d-block text-uppercase rounded border-danger mt-4 mb-2 border-3">Back</a>
 
                     </form>
-                    <!--
-                            <a href="dashboard.php"
-                            class="btn btn-outline-primary w-100 d-block text-uppercase rounded">Login</a> -->
                     <hr />
-                    <!-- <a href="register.php"
-                        class="btn btn-primary w-100 d-block text-uppercase rounded border-primary mt-4 border-3">Create
-                        Account</a> -->
-                    <!-- <a href="forgot.php"
-                        class="btn btn-danger w-100 d-block text-uppercase rounded border-danger mt-4 mb-2 border-3">Forget
-                        Password</a> -->
                 </div>
             </div>
         </div>
@@ -120,6 +124,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>";
     }
     ?>
+    <script>
+    $(document).ready(function() {
+        $('#showPasswordCheckbox').change(function() {
+            var passwordInput = $('#password');
+            var isChecked = $(this).is(':checked');
+            if (isChecked) {
+                passwordInput.attr('type', 'text');
+            } else {
+                passwordInput.attr('type', 'password');
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>
